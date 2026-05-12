@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARCHIVO: LAVANDA</title>
+  <title>ARCHIVO: L</title>
   <style>
     :root { --bg: #0a0a0a; --panel: #141414; --border: #2a2a2a; --text: #d0d0d0; --accent: #00ff9d; --err: #ff5555; }
     body { background: var(--bg); color: var(--text); font-family: 'Courier New', monospace; margin: 0; padding: 20px; line-height: 1.5; }
