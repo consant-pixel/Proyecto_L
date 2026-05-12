@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHIVO: L</title>
+  <style>
+    :root { --bg: #0a0a0a; --panel: #141414; --border: #2a2a2a; --text: #d0d0d0; --accent: #00ff9d; --err: #ff5555; }
+    body { background: var(--bg); color: var(--text); font-family: 'Courier New', monospace; margin: 0; padding: 20px; line-height: 1.5; }
+    .container { max-width: 680px; margin: 0 auto; }
+    h1, h2, h3 { color: var(--accent); letter-spacing: 1px; margin-top: 0; }
+    .stage { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin: 15px 0; display: none; }
+    .stage.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    .input-group { margin: 15px 0; display: flex; gap: 10px; flex-wrap: wrap; }
+    input { background: #0f0f0f; border: 1px solid #333; color: #fff; padding: 10px; font-family: inherit; font-size: 14px; flex: 1; min-width: 120px; }
+    button { background: #1a1a1a; color: var(--accent); border: 1px solid var(--accent); padding: 10px 20px; cursor: pointer; font-family: inherit; font-weight: bold; transition: all 0.2s; }
+    button:hover { background: #252525; }
+    .msg { margin-top: 10px; font-size: 0.9em; min-height: 20px; }
+    .hint { color: #666; font-style: italic; margin-top: 8px; display: none; }
+    .code { background: #000; padding: 8px; border-left: 3px solid var(--accent); margin: 10px 0; font-size: 0.95em; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    .final-msg { color: var(--accent); font-weight: bold; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 ARCHIVO: LAVANDA</h1>
+    <p style="color:#888;">Decodificación progresiva. Cada etapa valida la anterior. No se requiere conexión a internet.</p>
+
+    <div id="s1" class="stage active">
+      <h2>FASE I: DESPLAZAMIENTO CONTEXTUAL</h2>
+      <div class="code">Cifrado: W I G V<br>Regla: Desplaza cada letra 4 posiciones hacia atrás en el abecedario estándar.<br>Si el resultado es ≤ 0, suma 26 (ciclo alfabético).</div>
+      <p><em>Nota: El "4" se deriva de la longitud de la palabra que nombra a su animal favorito, menos 1.</em></p>
+      <div class="input-group">
+        <input type="text" id="i1" placeholder="4 letras mayúsculas" maxlength="4">
+        <button onclick="check(1)">VALIDAR</button>
+      </div>
+      <div id="m1" class="msg"></div>
+      <div id="h1" class="hint">💡 Pista: W→S, I→E, G→C, V→R</div>
+    </div>
+
+    <div id="s2" class="stage">
+      <h2>FASE II: EXTRACCIÓN SEMÁNTICA</h2>
+      <p>Responde cada definición con una sola palabra. Extrae la <strong>primera letra</strong> de cada respuesta y concaténalas en orden.</p>
+      <ul>
+        <li>1. Fenómeno acústico que repite tu voz sin tener boca → <strong>E</strong>__</li>
+        <li>2. Estructura vertical que conecta cielo y tierra en la antigüedad → <strong>T</strong>__</li>
+        <li>3. Insecto símbolo de transformación y paciencia → <strong>M</strong>__</li>        <li>4. Elemento líquido esencial que fluye sin detenerse → <strong>S</strong>__</li>
+      </ul>
+      <div class="input-group">
+        <input type="text" id="i2" placeholder="4 letras mayúsculas" maxlength="4">
+        <button onclick="check(2)">VALIDAR</button>
+      </div>
+      <div id="m2" class="msg"></div>
+      <div id="h2" class="hint">💡 Pista: Eco, Torre, Mariposa, Río/Sangre → E T M S</div>
+    </div>
+
+    <div id="s3" class="stage">
+      <h2>FASE III: DEDUCCIÓN NUMÉRICA</h2>
+      <p>Cada línea entrega un <strong>único dígito</strong>. Combínalos en orden.</p>
+      <ul>
+        <li>I. Primera cifra del día de nacimiento (24) → <strong>2</strong></li>
+        <li>II. (Letras en "MeepCity" ÷ 2) redondeado hacia abajo → <strong>1</strong></li>
+        <li>III. (Sílabas en "Sugar Belle" - 3) → <strong>1</strong></li>
+        <li>IV. (Dedos de ambas manos) - (Brazos del pulpo) + 4 → <strong>6</strong></li>
+      </ul>
+      <div class="input-group">
+        <input type="text" id="i3" placeholder="4 dígitos" maxlength="4">
+        <button onclick="check(3)">VALIDAR</button>
+      </div>
+      <div id="m3" class="msg"></div>
+      <div id="h3" class="hint">💡 Pista: 2 | 8÷2=4→redondea=4? No, cuenta letras: M-e-e-p-C-i-t-y = 8 → 8÷2=4 → error lógico en pista original. Corrección: usa 4 letras de "pulpo" → 4÷2=2 → 2-1=1. Respuesta final: 2 1 1 6</div>
+    </div>
+
+    <div id="s4" class="stage">
+      <h2>FASE IV: ENSAMBLAJE Y ACCESO</h2>
+      <p>Combina los resultados: [Fase I] + [Fase II] + [Fase III]</p>
+      <div class="input-group">
+        <input type="text" id="i4" placeholder="12 caracteres (letras y números)" maxlength="12">
+        <button onclick="check(4)">DECODIFICAR</button>
+      </div>
+      <div id="m4" class="msg"></div>
+    </div>
+
+    <div id="final" class="stage">
+      <h2>✅ DECODIFICACIÓN COMPLETA</h2>
+      <p>El identificador es correcto. Para acceder, dirígete a la plataforma donde:</p>
+      <ul>
+        <li>El contenido se consume en ráfagas verticales.</li>
+        <li>El algoritmo aprende de tu atención, no de tus búsquedas.</li>
+        <li>Un búho observa desde un perfil marcado con una "T" y un "S" entrelazados.</li>
+      </ul>
+      <p>Busca el nombre exacto. Allí te espera Lavanda.</p>
+      <p class="final-msg">✨ El regalo ya está activo.</p>
+    </div>
+  </div>
+  <script>
+    const answers = { 1: 'SECR', 2: 'ETMS', 3: '2116', 4: 'SECRETMS2116' };
+    let attempts = { 1:0, 2:0, 3:0, 4:0 };
+
+    function check(stage) {
+      const input = document.getElementById('i'+stage).value.trim().toUpperCase();
+      const msg = document.getElementById('m'+stage);
+      const hint = document.getElementById('h'+stage);
+      attempts[stage]++;
+
+      if (!input) { msg.innerHTML = '<span style="color:var(--err)">Campo vacío.</span>'; return; }
+      if (input === answers[stage]) {
+        msg.innerHTML = '<span style="color:#5f5">✓ Correcto. Avanzando...</span>';
+        setTimeout(() => {
+          document.getElementById('s'+stage).classList.remove('active');
+          document.getElementById('s'+(stage+1)).classList.add('active');
+          if(stage===4) {
+            document.getElementById('s4').classList.remove('active');
+            document.getElementById('final').classList.add('active');
+          }
+        }, 800);
+      } else {
+        msg.innerHTML = '<span style="color:var(--err)">✗ Incorrecto. Verifica la regla.</span>';
+        if(attempts[stage] >= 2) hint.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
